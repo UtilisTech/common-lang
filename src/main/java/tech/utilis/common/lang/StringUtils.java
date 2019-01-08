@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class StringUtils {
 	/**
-	 * Calculates the number of common n-grams in the haystack.
+	 * Calculates the number of common n-grams in the haystack (case sensitive).
 	 * <br>
 	 * Needle may be longer than the haystack, but in that case the number of common n-grams will be limited by the haystack size.
 	 * <br>
@@ -24,11 +24,11 @@ public class StringUtils {
 	public static int countCommonNGrams(String needle, String haystack, int nGramLength){
 		int overlaps = 0;
 		
-		if (needle.length() < nGramLength && needle.equalsIgnoreCase(haystack)){
+		if (needle.length() < nGramLength && needle.equals(haystack)){
 			return 1;
 		}
 		
-		if (needle.equalsIgnoreCase(haystack)){
+		if (needle.equals(haystack)){
 			return maxCommonNGrams(needle.length(), haystack.length(), nGramLength);
 		}
 		
