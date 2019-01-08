@@ -87,12 +87,21 @@ public class StringUtils {
 	 * @param lengthNGram n-gram length
 	 * 
 	 * @return array of n-grams
+	 * 
+	 * @throws IllegalArgumentException if string is shorter than n-gram
 	 */
 	public static String[] nGrams(String string, int lengthNGram){
+		
+		if (string.length() < lengthNGram){
+			throw new IllegalArgumentException("String is shorter than n-gram length: " + string.length() + " < " + lengthNGram);
+		}
+		
 		String[] nGrams = new String[string.length() + 1 - lengthNGram];
+		
 		for (int i = 0; i < nGrams.length; i++){
 			nGrams[i] = string.substring(i, i + lengthNGram);
 		}
+		
 		return nGrams;
 	}
 	
