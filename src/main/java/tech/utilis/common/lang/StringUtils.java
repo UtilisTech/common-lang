@@ -90,7 +90,7 @@ public class StringUtils {
 	 * 
 	 * @throws IllegalArgumentException if string is shorter than n-gram
 	 */
-	public static String[] nGrams(String string, int lengthNGram){
+	public static String[] toNGramArray(String string, int lengthNGram){
 		
 		if (string.length() < lengthNGram){
 			throw new IllegalArgumentException("String is shorter than n-gram length: " + string.length() + " < " + lengthNGram);
