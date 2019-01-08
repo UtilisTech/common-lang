@@ -56,9 +56,24 @@ public class StringUtils {
 	 * @param lengthHaystack length of the haystack string
 	 * @param lengthNGram length of the n-gram
 	 * 
-	 * @return maximum number of common n-grams between given strings
+	 * @return maximum number of common n-grams between given strings or 0 if needle or haystack length is zero
+	 * 
+	 * @throws IllegalArgumentException if n-gram length less than 2, or needle or haystack length is negative
 	 */
 	public static int maxCommonNGrams(int lengthNeedle, int lengthHaystack, int lengthNGram){
+		
+		if (lengthNGram < 2){
+			throw new IllegalArgumentException("N-gram length can't be less than 2");
+		}
+		
+		if (lengthNeedle < 0 || lengthHaystack < 0){
+			throw new IllegalArgumentException("Needle or haystack lengths can't be negative");
+		}
+		
+		if (lengthNeedle == 0 || lengthHaystack == 0){
+			return 0;
+		}
+		
 		if (lengthHaystack >= lengthNeedle){
 			return lengthNeedle + 1 - lengthNGram;
 		}
