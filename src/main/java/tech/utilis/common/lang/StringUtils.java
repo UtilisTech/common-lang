@@ -25,7 +25,7 @@ public class StringUtils {
 		int overlaps = 0;
 		
 		if (needle.length() < nGramLength && needle.equals(haystack)){
-			return 1;
+			return 0;
 		}
 		
 		if (needle.equals(haystack)){
