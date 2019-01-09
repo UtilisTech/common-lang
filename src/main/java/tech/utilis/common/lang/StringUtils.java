@@ -24,16 +24,12 @@ public class StringUtils {
 	public static int countCommonNGrams(String needle, String haystack, int nGramLength){
 		int overlaps = 0;
 		
-		if (needle.length() < nGramLength && needle.equals(haystack)){
+		if (needle.length() < nGramLength || haystack.length() < nGramLength){
 			return 0;
 		}
 		
 		if (needle.equals(haystack)){
 			return maxCommonNGrams(needle.length(), haystack.length(), nGramLength);
-		}
-		
-		if (needle.length() < nGramLength || haystack.length() < nGramLength){
-			nGramLength = Math.min(needle.length(), haystack.length());
 		}
 		
 		for (int i = 0; i < needle.length() - nGramLength + 1; i++){
