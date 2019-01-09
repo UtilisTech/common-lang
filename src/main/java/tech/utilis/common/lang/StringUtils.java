@@ -88,9 +88,13 @@ public class StringUtils {
 	 * 
 	 * @return array of n-grams
 	 * 
-	 * @throws IllegalArgumentException if string is shorter than n-gram
+	 * @throws IllegalArgumentException if string is shorter than n-gram or n-gram length is less than 2
 	 */
 	public static String[] toNGramArray(String string, int lengthNGram){
+		
+		if (lengthNGram < 2){
+			throw new IllegalArgumentException("N-gram can't be shorter than 2: " + lengthNGram);
+		}
 		
 		if (string.length() < lengthNGram){
 			throw new IllegalArgumentException("String is shorter than n-gram length: " + string.length() + " < " + lengthNGram);
